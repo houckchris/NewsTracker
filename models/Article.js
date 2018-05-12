@@ -8,13 +8,19 @@ var ArticleSchema = new Schema({
     // TITLE IS REQUIRED AND TYPE STRING
     title: {
         type: String,
-        required: true
+        required: true,
     },
     // LINK IS REQUIRED AND A STRING
     link: {
         type: String,
         required: true
     },
+    // THE SUMMARY
+    summary: {
+        type: String,
+        required: false
+    },
+    // NOTE
     note: {
         type: Schema.Types.ObjectId,
         ref: "Note"

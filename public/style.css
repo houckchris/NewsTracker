@@ -11,6 +11,9 @@ body {
   margin-right: auto;
   padding-top: 5%;
 }
+#mainContainer {
+  margin-top: 300px;
+}
 #articles {
   display: inline-block;
   overflow: auto;

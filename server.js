@@ -40,11 +40,15 @@ mongoose.connect(MONGODB_URI);
 app.get("/scrape", function(req, res){
     // GRAB THE BODY OF THE HTML USING 'REQUEST'
     axios.get("https://www.reddit.com/search?q=trail+running").then(function(response){
+
         // LOAD IT INTO CHEERIO AND SAVE IT TO $ FOR A SHORTHAND SELECTOR
         var $ = cheerio.load(response.data);
 
+        console.log( $("div.search-result").length );
+
         // NOW GRAB EVERY ARTICLE HEADLINE IN DIV TAGS WITH CLASS POST
         $("div.search-result").each(function(i, element){
+
             // SAVE AN EMPTY RESULT OBJECT
             var result = {};
 
@@ -83,7 +87,9 @@ app.get("/scrape", function(req, res){
         });
 
         // IF WE WERE ABLE TO SUCCESSFULLY SCRAPE AND SAVE AN ARTICLE, SEND A MESSAGE TO THE CLIENT
-        res.send("Scrape complete");
+        db.Article.find({}).then(( allArticles ) => {
+            res.json( allArticles );
+        });
     });
 });
 
