@@ -27,7 +27,7 @@ It will also allow the user to comment on articles.
 * The ability to persist comments on articles of interest
 * User authentication
 
-###Shouts Out:
+##Shouts Out:
 The fuel for this fire:
 * Andrew, Jacob, and Valarie
 * Childish Gambino - "This is America"
